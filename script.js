@@ -758,7 +758,7 @@ function updateProgress() {
 }
 
 /* ─── HISTORY ────────────────────────────── */
-let historyTotal = 505.00;
+let historyTotal = 50.00;
 
 function renderHistory() {
   dom.historyList.innerHTML = "";
