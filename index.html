@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pesquisa Premiada</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
+
+  <!-- Lucide -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon"><i class="ri-medal-line"></i></span>
+        <span class="logo-text">Pesquisa <strong>Premiada</strong></span>
+      </div>
+      <div class="header-right">
+        <div class="balance-pill">
+          <i class="ri-coin-line balance-icon"></i>
+          <span class="balance-label">Saldo</span>
+          <span class="balance-amount" id="balanceDisplay">R$50,00</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BONUS POPUP ===== -->
+  <div class="overlay" id="bonusOverlay">
+    <div class="modal bonus-modal">
+      <div class="modal-icon-wrap">
+        <i class="ri-gift-2-line"></i>
+      </div>
+      <p class="modal-label">Bônus de boas-vindas</p>
+      <h2 class="modal-amount">R$50,00</h2>
+      <p class="modal-sub">Creditado automaticamente na sua conta</p>
+      <div class="modal-info-row">
+        <div class="modal-info-item">
+          <i class="ri-time-line"></i>
+          <span>Disponível agora</span>
+        </div>
+        <div class="modal-info-item">
+          <i class="ri-shield-check-line"></i>
+          <span>Saque garantido</span>
+        </div>
+      </div>
+      <button class="btn-primary" id="bonusCloseBtn">
+        <i class="ri-arrow-right-line"></i>
+        Começar a avaliar
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== PER-EVAL REWARD MODAL ===== -->
+  <div class="overlay hidden" id="rewardOverlay">
+    <div class="modal reward-modal">
+      <div class="modal-icon-wrap reward-icon">
+        <i class="ri-money-dollar-circle-line"></i>
+      </div>
+      <p class="modal-label">Saldo atualizado</p>
+      <h2 class="modal-amount" id="rewardAmount">R$00,00</h2>
+      <p class="modal-sub">Você recebeu pela avaliação</p>
+      <div class="reward-progress-mini">
+        <div class="rpm-track">
+          <div class="rpm-fill" id="rpmFill"></div>
+        </div>
+        <p class="rpm-label" id="rpmLabel">Avaliação <span id="rpmCurrent">1</span> de 5</p>
+      </div>
+      <button class="btn-primary" id="rewardCloseBtn">
+        <i class="ri-arrow-right-line"></i>
+        Próxima avaliação
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== MILESTONE REWARD SCREEN (after 5 evals) ===== -->
+  <div class="overlay hidden" id="milestoneOverlay">
+    <div class="modal milestone-modal">
+      <div class="confetti-container" id="confettiContainer"></div>
+      <div class="milestone-badge">
+        <i class="ri-award-line"></i>
+        <span>5 AVALIAÇÕES CONCLUÍDAS</span>
+      </div>
+      <div class="modal-icon-wrap milestone-icon">
+        <i class="ri-trophy-line"></i>
+      </div>
+      <h1 class="milestone-title">PARABÉNS!</h1>
+      <p class="milestone-subtitle">Seu saldo subiu!</p>
+      <div class="milestone-amount-box">
+        <p class="milestone-amount-label">Saldo acumulado</p>
+        <h2 class="milestone-big-amount" id="milestoneAmount">R$0,00</h2>
+      </div>
+      <p class="milestone-desc" id="milestoneDesc">
+        Você acaba de ganhar <strong id="milestoneEarned">R$0,00</strong> por ter avaliado empresas na plataforma.
+      </p>
+      <p class="milestone-continue-hint">Para realizar seu saque, continue avaliando!</p>
+      <button class="btn-milestone" id="milestoneContinueBtn">
+        <i class="ri-arrow-right-circle-line"></i>
+        CONTINUAR E GANHAR
+      </button>
+      <div class="urgency-strip">
+        <i class="ri-time-line"></i>
+        <span>Seu crédito expira hoje</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GOAL COMPLETED SCREEN (after 10 evals) ===== -->
+  <div class="overlay hidden" id="goalOverlay">
+    <div class="modal goal-modal">
+      <div class="confetti-container" id="goalConfettiContainer"></div>
+      <div class="goal-badge">
+        <i class="ri-checkbox-circle-line"></i>
+        <span>META BATIDA</span>
+      </div>
+      <div class="modal-icon-wrap goal-icon">
+        <i class="ri-trophy-fill"></i>
+      </div>
+      <h1 class="goal-title">META BATIDA</h1>
+      <p class="goal-subtitle">Saque disponível</p>
+      <div class="goal-amount-box">
+        <p class="goal-amount-label">Total disponível para saque</p>
+        <h2 class="goal-big-amount" id="goalAmount">R$0,00</h2>
+        <div class="goal-verified">
+          <i class="ri-shield-check-line"></i>
+          <span>Valor verificado e aprovado</span>
+        </div>
+      </div>
+      <p class="goal-msg">Você atingiu o valor mínimo para saque. Seu dinheiro está disponível agora!</p>
+      <button class="btn-withdraw" id="withdrawBtn">
+        <i class="ri-bank-card-2-line"></i>
+        SACAR AGORA
+      </button>
+      <button class="btn-continue-goal" id="goalContinueBtn">
+        <i class="ri-add-line"></i>
+        Continuar avaliando para ganhar mais
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== LOADING OVERLAY (checkout redirect) ===== -->
+  <div class="overlay hidden" id="loadingOverlay">
+    <div class="loading-content">
+      <div class="loading-ring">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <p class="loading-title">Processando seu saque</p>
+      <p class="loading-sub">Aguarde, estamos liberando seu valor...</p>
+      <div class="loading-steps">
+        <div class="lstep active" id="lstep1">
+          <div class="lstep-dot"></div>
+          <span>Verificando identidade</span>
+        </div>
+        <div class="lstep" id="lstep2">
+          <div class="lstep-dot"></div>
+          <span>Confirmando saldo</span>
+        </div>
+        <div class="lstep" id="lstep3">
+          <div class="lstep-dot"></div>
+          <span>Iniciando transferência</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main-wrapper">
+
+    <!-- EVALUATION CARD -->
+    <section class="eval-card" id="evalCard">
+      <div class="eval-header">
+        <span class="eval-badge">
+          <i class="ri-survey-line"></i>
+          Avaliação
+        </span>
+        <div class="eval-header-right">
+          <span class="eval-cycle-tag" id="evalCycleTag">Ciclo 1</span>
+          <span class="eval-counter" id="evalCounter">1 / 5</span>
+        </div>
+      </div>
+
+      <!-- CYCLE MINI PROGRESS -->
+      <div class="cycle-progress">
+        <div class="cycle-dots" id="cycleDots">
+          <span class="cdot" data-pos="1"></span>
+          <span class="cdot" data-pos="2"></span>
+          <span class="cdot" data-pos="3"></span>
+          <span class="cdot" data-pos="4"></span>
+          <span class="cdot" data-pos="5"></span>
+        </div>
+        <p class="cycle-hint">Complete 5 avaliações para liberar recompensa</p>
+      </div>
+
+      <div class="product-block">
+        <div class="product-img-wrap">
+          <img src="" alt="Produto" id="productImage" class="product-img" />
+          <div class="product-img-skeleton" id="imgSkeleton"></div>
+        </div>
+        <div class="product-info">
+          <p class="product-category" id="productCategory">Categoria</p>
+          <h2 class="product-name" id="productName">Carregando...</h2>
+          <p class="product-desc" id="productDesc">Descrição do produto aparecerá aqui.</p>
+          <div class="product-reward-hint">
+            <i class="ri-coins-line"></i>
+            <span>Ganhe até <strong id="potentialReward">R$45,00</strong> por esta avaliação</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAR RATING -->
+      <div class="rating-block">
+        <p class="section-label">Como você avalia este produto?</p>
+        <div class="stars-row" id="starsRow">
+          <span class="star" data-value="1"><i class="ri-star-line"></i></span>
+          <span class="star" data-value="2"><i class="ri-star-line"></i></span>
+          <span class="star" data-value="3"><i class="ri-star-line"></i></span>
+          <span class="star" data-value="4"><i class="ri-star-line"></i></span>
+          <span class="star" data-value="5"><i class="ri-star-line"></i></span>
+        </div>
+        <p class="rating-hint" id="ratingHint">Toque em uma estrela para avaliar</p>
+      </div>
+
+      <!-- DYNAMIC QUESTIONS -->
+      <div class="questions-block hidden" id="questionsBlock"></div>
+
+      <!-- SUBMIT -->
+      <button class="btn-submit" id="submitBtn" disabled>
+        <i class="ri-check-double-line"></i>
+        <span>Enviar avaliação</span>
+      </button>
+    </section>
+
+    <!-- PROGRESS SECTION -->
+    <section class="progress-section" id="progressSection">
+      <div class="progress-header">
+        <span class="section-title">
+          <i class="ri-bar-chart-grouped-line"></i>
+          Progresso
+        </span>
+        <span class="progress-pct" id="progressPct">0%</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        <div class="progress-milestone-marker" style="left:50%">
+          <span class="pmm-label">Recompensa</span>
+        </div>
+      </div>
+
+      <div class="progress-stages">
+        <span class="stage active" id="stage0">
+          <i class="ri-flag-line"></i> Início
+        </span>
+        <span class="stage" id="stage1">
+          <i class="ri-loader-4-line"></i> Em progresso
+        </span>
+        <span class="stage" id="stage2">
+          <i class="ri-bank-card-2-line"></i> Saque liberado
+        </span>
+      </div>
+
+      <!-- CIRCULAR METERS -->
+      <div class="meters-row">
+        <div class="meter-card">
+          <svg class="circle-svg" viewBox="0 0 80 80">
+            <circle class="circle-bg" cx="40" cy="40" r="32"/>
+            <circle class="circle-fg" id="circleEval" cx="40" cy="40" r="32"
+              stroke-dasharray="201 201" stroke-dashoffset="201"/>
+          </svg>
+          <div class="meter-label">
+            <span class="meter-val" id="meterEvalPct">0%</span>
+            <span class="meter-sub">Avaliações</span>
+          </div>
+        </div>
+        <div class="meter-card">
+          <svg class="circle-svg" viewBox="0 0 80 80">
+            <circle class="circle-bg" cx="40" cy="40" r="32"/>
+            <circle class="circle-fg" id="circleEarn" cx="40" cy="40" r="32"
+              stroke-dasharray="201 201" stroke-dashoffset="201"/>
+          </svg>
+          <div class="meter-label">
+            <span class="meter-val" id="meterEarnVal">R$0</span>
+            <span class="meter-sub">Ganhos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WITHDRAW SECTION (hidden until goal) -->
+      <div class="withdraw-section hidden" id="withdrawSection">
+        <div class="withdraw-banner" id="withdrawBannerBtn">
+          <div class="wb-left">
+            <div class="wb-icon">
+              <i class="ri-bank-card-2-line"></i>
+            </div>
+            <div class="wb-info">
+              <p class="wb-title">Saque Disponível</p>
+              <p class="wb-sub" id="wbSub">Clique para sacar agora</p>
+            </div>
+          </div>
+          <div class="wb-arrow">
+            <i class="ri-arrow-right-s-line"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTINUE BUTTON (shown after milestone) -->
+      <button class="btn-continue-eval hidden" id="continueEvalBtn">
+        <i class="ri-refresh-line"></i>
+        Continuar Avaliando
+      </button>
+    </section>
+
+    <!-- PAYMENT HISTORY -->
+    <section class="history-section">
+      <div class="history-header">
+        <span class="section-title">
+          <i class="ri-history-line"></i>
+          Histórico de Pagamentos
+        </span>
+        <span class="history-total" id="historyTotal">R$505,00</span>
+      </div>
+      <ul class="history-list" id="historyList"></ul>
+    </section>
+
+  </main>
+
+  <!-- LIVE NOTIFICATION STACK -->
+  <div class="notif-stack" id="notifStack"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
