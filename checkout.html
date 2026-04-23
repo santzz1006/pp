@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — Pesquisa Premiada</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+  <link rel="stylesheet" href="checkout.css" />
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <i class="ri-shield-check-line"></i>
+    <span>Página segura — SSL ativo</span>
+    <span class="topbar-sep">|</span>
+    <span>Pagamento processado com segurança</span>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="ck-header">
+    <div class="ck-header-inner">
+      <!-- LOGO -->
+      <div class="ck-logo">
+        <img src="logo.png" alt="Logo" style="height: 32px; width: auto; object-fit: contain; border-radius: 6px;" />
+        <span class="logo-text">Pesquisa <strong>Premiada</strong></span>
+      </div>
+      <!-- COUNTDOWN -->
+      <div class="countdown-pill">
+        <i class="ri-timer-line"></i>
+        <span>Oferta expira em</span>
+        <span class="countdown-time" id="countdownTimer">10:00</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="ck-main">
+    <div class="ck-grid">
+
+      <!-- ========================
+           LEFT — PRODUCT INFO
+      ======================== -->
+      <aside class="ck-product-col">
+
+        <!-- Product card -->
+        <div class="product-card">
+          <div class="product-tag"><i class="ri-flashlight-line"></i> Ativação Imediata</div>
+
+          <div class="product-hero">
+            <div class="product-logo-block">
+              <div class="product-logo-icon"><i class="ri-search-2-line"></i></div>
+            </div>
+            <div>
+              <h1 class="product-title">Pesquisa Premiada</h1>
+              <p class="product-subtitle">Plataforma de avaliações remuneradas</p>
+            </div>
+          </div>
+
+          <p class="product-desc">
+            Ativação da plataforma + liberação de funcionalidades premium. Acesse avaliações remuneradas, saque via Pix e painel completo de ganhos.
+          </p>
+
+          <ul class="product-features">
+            <li><i class="ri-check-line"></i> Acesso imediato após pagamento</li>
+            <li><i class="ri-check-line"></i> Avaliações disponíveis 24h</li>
+            <li><i class="ri-check-line"></i> Saque via Pix a qualquer hora</li>
+            <li><i class="ri-check-line"></i> Suporte prioritário</li>
+          </ul>
+        </div>
+
+        <!-- Add-ons -->
+        <div class="addons-card">
+          <p class="addons-title"><i class="ri-add-circle-line"></i> Potencialize seus ganhos</p>
+
+          <label class="addon-item" id="addonX2Label">
+            <div class="addon-checkbox-wrap">
+              <input type="checkbox" id="addonX2" class="addon-check" data-price="15" />
+              <span class="custom-check"><i class="ri-check-line"></i></span>
+            </div>
+            <div class="addon-info">
+              <span class="addon-name">Avaliações em dobro</span>
+              <span class="addon-desc">x2 ganhos em cada avaliação</span>
+            </div>
+            <span class="addon-price">+R$15,00</span>
+          </label>
+
+          <label class="addon-item" id="addonBonusLabel">
+            <div class="addon-checkbox-wrap">
+              <input type="checkbox" id="addonBonus" class="addon-check" data-price="10" />
+              <span class="custom-check"><i class="ri-check-line"></i></span>
+            </div>
+            <div class="addon-info">
+              <span class="addon-name">Bônus diário desbloqueado</span>
+              <span class="addon-desc">Recompensa extra todo dia ao entrar</span>
+            </div>
+            <span class="addon-price">+R$10,00</span>
+          </label>
+        </div>
+
+        <!-- Price summary -->
+        <div class="price-card">
+          <div class="price-row base-row">
+            <span>Ativação da plataforma</span>
+            <span>R$27,90</span>
+          </div>
+          <div class="price-row addon-row hidden" id="rowX2">
+            <span>Avaliações em dobro</span>
+            <span>+R$15,00</span>
+          </div>
+          <div class="price-row addon-row hidden" id="rowBonus">
+            <span>Bônus diário</span>
+            <span>+R$10,00</span>
+          </div>
+          <div class="price-divider"></div>
+          <div class="price-row total-row">
+            <span>Total</span>
+            <span class="total-value" id="totalPrice">R$27,90</span>
+          </div>
+          <p class="price-note"><i class="ri-shield-keyhole-line"></i> Pagamento único — sem mensalidade</p>
+        </div>
+
+        <!-- Trust badges -->
+        <div class="trust-row">
+          <div class="trust-badge">
+            <img src="google-removebg-preview.png" alt="Compra Segura" style="height: 36px; width: auto; object-fit: contain; margin-bottom: 4px;" />
+            <span>Compra Segura</span>
+          </div>
+          <div class="trust-badge">
+            <img src="ssl-removebg-preview.png" alt="SSL Ativo" style="height: 36px; width: auto; object-fit: contain; margin-bottom: 4px;" />
+            <span>SSL Ativo</span>
+          </div>
+          <div class="trust-badge">
+            <img src="reclameaqui-removebg-preview.png" alt="Reclame Aqui" style="height: 36px; width: auto; object-fit: contain; margin-bottom: 4px;" />
+            <span>Reclame Aqui</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ========================
+           RIGHT — FORM
+      ======================== -->
+      <section class="ck-form-col">
+
+        <div class="form-card" id="formCard">
+          <div class="form-heading">
+            <p class="form-step-label">Etapa 1 de 2</p>
+            <h2 class="form-title">Seus dados</h2>
+          </div>
+
+          <div class="form-fields">
+
+            <div class="field-group">
+              <label class="field-label" for="fullName">
+                <i class="ri-user-line"></i> Nome completo
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                class="field-input"
+                placeholder="Seu nome completo"
+                autocomplete="name"
+              />
+              <span class="field-error hidden" id="nameError">Por favor, insira seu nome completo.</span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="email">
+                <i class="ri-mail-line"></i> E-mail
+              </label>
+              <input
+                type="email"
+                id="email"
+                class="field-input"
+                placeholder="seu@email.com"
+                autocomplete="email"
+              />
+              <span class="field-error hidden" id="emailError">Insira um e-mail válido.</span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="cpf">
+                <i class="ri-id-card-line"></i> CPF
+              </label>
+              <input
+                type="text"
+                id="cpf"
+                class="field-input"
+                placeholder="000.000.000-00"
+                maxlength="14"
+                autocomplete="off"
+              />
+              <span class="field-error hidden" id="cpfError">CPF inválido. Verifique e tente novamente.</span>
+            </div>
+
+          </div>
+
+          <!-- PIX info -->
+          <div class="pix-method">
+            <div class="pix-badge">
+              <i class="ri-qr-code-line"></i>
+              <div>
+                <p class="pix-title">Pagamento via PIX</p>
+                <p class="pix-sub">Aprovação em segundos — 24h por dia</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-finalize" id="finalizeBtn" disabled>
+            <span class="btn-text">
+              <i class="ri-lock-line"></i>
+              Finalizar Pagamento
+            </span>
+            <span class="btn-loading hidden" id="btnLoading">
+              <i class="ri-loader-4-line spin"></i>
+              Gerando PIX...
+            </span>
+          </button>
+
+          <p class="form-security-note">
+            <i class="ri-shield-check-line"></i>
+            Dados protegidos. Pagamento seguro via PIX.
+          </p>
+        </div>
+
+        <!-- PIX PAYMENT AREA (hidden initially) -->
+        <div class="pix-card hidden" id="pixCard">
+          <div class="pix-success-header">
+            <div class="pix-check-icon"><i class="ri-check-double-line"></i></div>
+            <div>
+              <p class="pix-success-label">PIX gerado com sucesso</p>
+              <h3 class="pix-success-title">Etapa 2 de 2 — Efetue o pagamento</h3>
+            </div>
+          </div>
+
+          <div class="pix-body">
+            <div class="qr-wrap">
+              <!-- QR Code placeholder — replace with real QR image from API -->
+              <div class="qr-placeholder" id="qrCodeWrap">
+                <i class="ri-qr-code-line"></i>
+                <p>QR Code PIX</p>
+                <!-- <img id="qrCodeImg" src="" alt="QR Code PIX" /> -->
+              </div>
+              <p class="qr-hint">Abra seu banco e escaneie o QR Code</p>
+            </div>
+
+            <div class="pix-divider"><span>ou copie o código</span></div>
+
+            <div class="pix-copy-block">
+              <input type="text" class="pix-code-input" id="pixCodeInput" readonly
+                value="00020126580014br.gov.bcb.pix0136PLACEHOLDER-PIX-CODE-AQUI5204000053039865802BR5913PesquisaPrem6008Sao Paulo62070503***6304XXXX" />
+              <button class="btn-copy" id="copyBtn">
+                <i class="ri-file-copy-line" id="copyIcon"></i>
+                <span id="copyText">Copiar</span>
+              </button>
+            </div>
+
+            <div class="pix-instructions">
+              <p class="instr-title"><i class="ri-information-line"></i> Como pagar:</p>
+              <ol class="instr-list">
+                <li>Abra o aplicativo do seu banco</li>
+                <li>Acesse a área PIX e escolha "Copia e Cola"</li>
+                <li>Cole o código acima e confirme o valor</li>
+                <li>Após o pagamento, seu acesso é liberado automaticamente</li>
+              </ol>
+            </div>
+
+            <div class="pix-amount-row">
+              <span>Valor a pagar:</span>
+              <span class="pix-amount-val" id="pixAmountDisplay">R$27,90</span>
+            </div>
+
+            <div class="pix-expire">
+              <i class="ri-timer-2-line"></i>
+              <span>Este PIX expira em <strong id="pixExpireTimer">15:00</strong></span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </main>
+
+  <!-- ===== LIVE NOTIFICATIONS ===== -->
+  <div class="notif-stack" id="notifStack"></div>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

@@ -288,6 +288,106 @@ const notifMessages = [
   { name: "Patricia L.", action: "recebeu", value: "R$267,50", via: "em avaliações" },
   { name: "André S.", action: "sacou", value: "R$512,00", via: "via Pix" },
   { name: "Vanessa M.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Marcos P.", action: "sacou", value: "R$310,00", via: "via Pix" },
+  { name: "Letícia Silva", action: "recebeu", value: "R$125,50", via: "em avaliações" },
+  { name: "Bruno K.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Amanda T.", action: "sacou", value: "R$480,25", via: "via Pix" },
+  { name: "Roberto C.", action: "recebeu", value: "R$210,00", via: "em avaliações" },
+  { name: "Júlia F.", action: "atingiu", value: "a meta", via: "e sacou R$350" },
+  { name: "Gabriel M.", action: "sacou", value: "R$195,00", via: "via Pix" },
+  { name: "Bianca R.", action: "recebeu", value: "R$340,80", via: "em avaliações" },
+  { name: "Victor S.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Camila V.", action: "sacou", value: "R$520,00", via: "via Pix" },
+  { name: "Leonardo D.", action: "recebeu", value: "R$175,00", via: "em avaliações" },
+  { name: "Isabela M.", action: "sacou", value: "R$265,40", via: "via Pix" },
+  { name: "Felipe N.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Larissa P.", action: "recebeu", value: "R$410,00", via: "em avaliações" },
+  { name: "Ricardo Alves", action: "sacou", value: "R$630,00", via: "via Pix" },
+  { name: "Tatiane S.", action: "atingiu", value: "a meta", via: "e sacou R$400" },
+  { name: "Eduardo K.", action: "recebeu", value: "R$290,50", via: "em avaliações" },
+  { name: "Priscila O.", action: "sacou", value: "R$145,00", via: "via Pix" },
+  { name: "Vinícius R.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Carolina B.", action: "recebeu", value: "R$380,20", via: "em avaliações" },
+  { name: "Daniel F.", action: "sacou", value: "R$415,00", via: "via Pix" },
+  { name: "Aline G.", action: "recebeu", value: "R$155,75", via: "em avaliações" },
+  { name: "Marcelo T.", action: "atingiu", value: "a meta", via: "e sacou R$600" },
+  { name: "Renata L.", action: "sacou", value: "R$275,00", via: "via Pix" },
+  { name: "Igor M.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Sabrina C.", action: "recebeu", value: "R$490,00", via: "em avaliações" },
+  { name: "Tiago V.", action: "sacou", value: "R$335,80", via: "via Pix" },
+  { name: "Nathalia S.", action: "recebeu", value: "R$225,40", via: "em avaliações" },
+  { name: "Alexandre P.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Flávia N.", action: "sacou", value: "R$540,00", via: "via Pix" },
+  { name: "Gustavo B.", action: "atingiu", value: "a meta", via: "e sacou R$450" },
+  { name: "Luiza M.", action: "recebeu", value: "R$198,00", via: "em avaliações" },
+  { name: "Matheus R.", action: "sacou", value: "R$250,50", via: "via Pix" },
+  { name: "Bruna F.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Pedro H.", action: "recebeu", value: "R$315,00", via: "em avaliações" },
+  { name: "Jessica T.", action: "sacou", value: "R$180,00", via: "via Pix" },
+  { name: "Caio S.", action: "atingiu", value: "a meta", via: "e sacou R$700" },
+  { name: "Mayara L.", action: "recebeu", value: "R$440,25", via: "em avaliações" },
+  { name: "Henrique O.", action: "sacou", value: "R$395,00", via: "via Pix" },
+  { name: "Raquel M.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Samuel V.", action: "recebeu", value: "R$260,80", via: "em avaliações" },
+  { name: "Letícia B.", action: "sacou", value: "R$510,00", via: "via Pix" },
+  { name: "Vitor G.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Bárbara N.", action: "recebeu", value: "R$135,50", via: "em avaliações" },
+  { name: "Arthur C.", action: "sacou", value: "R$285,00", via: "via Pix" },
+  { name: "Mariana P.", action: "atingiu", value: "a meta", via: "e sacou R$380" },
+  { name: "Lucas F.", action: "recebeu", value: "R$370,00", via: "em avaliações" },
+  { name: "Talita S.", action: "sacou", value: "R$460,00", via: "via Pix" },
+  { name: "João V.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Fernanda L.", action: "recebeu", value: "R$205,75", via: "em avaliações" },
+  { name: "Guilherme R.", action: "sacou", value: "R$155,00", via: "via Pix" },
+  { name: "Amanda M.", action: "atingiu", value: "a meta", via: "e sacou R$800" },
+  { name: "Rafael C.", action: "recebeu", value: "R$425,00", via: "em avaliações" },
+  { name: "Thais F.", action: "sacou", value: "R$345,50", via: "via Pix" },
+  { name: "Thiago S.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Milena R.", action: "recebeu", value: "R$295,00", via: "em avaliações" },
+  { name: "Diego T.", action: "sacou", value: "R$580,00", via: "via Pix" },
+  { name: "Gabriela O.", action: "atingiu", value: "a meta", via: "e sacou R$420" },
+  { name: "Rodrigo B.", action: "recebeu", value: "R$185,25", via: "em avaliações" },
+  { name: "Camila N.", action: "sacou", value: "R$240,00", via: "via Pix" },
+  { name: "Leandro P.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Juliana M.", action: "recebeu", value: "R$365,80", via: "em avaliações" },
+  { name: "Carlos F.", action: "sacou", value: "R$475,00", via: "via Pix" },
+  { name: "Luana V.", action: "atingiu", value: "a meta", via: "e sacou R$550" },
+  { name: "Marcelo S.", action: "recebeu", value: "R$140,50", via: "em avaliações" },
+  { name: "Aline T.", action: "sacou", value: "R$325,00", via: "via Pix" },
+  { name: "Fábio R.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Tatiana C.", action: "recebeu", value: "R$455,00", via: "em avaliações" },
+  { name: "Bruno M.", action: "sacou", value: "R$170,00", via: "via Pix" },
+  { name: "Carolina S.", action: "atingiu", value: "a meta", via: "e sacou R$300" },
+  { name: "Eduardo L.", action: "recebeu", value: "R$280,25", via: "em avaliações" },
+  { name: "Isabella G.", action: "sacou", value: "R$505,00", via: "via Pix" },
+  { name: "Victor H.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Larissa N.", action: "recebeu", value: "R$215,80", via: "em avaliações" },
+  { name: "Fernando O.", action: "sacou", value: "R$390,00", via: "via Pix" },
+  { name: "Natália P.", action: "atingiu", value: "a meta", via: "e sacou R$650" },
+  { name: "Daniel C.", action: "recebeu", value: "R$330,00", via: "em avaliações" },
+  { name: "Beatriz M.", action: "sacou", value: "R$165,50", via: "via Pix" },
+  { name: "Marcos V.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Priscila T.", action: "recebeu", value: "R$485,00", via: "em avaliações" },
+  { name: "Renato S.", action: "sacou", value: "R$295,00", via: "via Pix" },
+  { name: "Silvia R.", action: "atingiu", value: "a meta", via: "e sacou R$480" },
+  { name: "Gustavo L.", action: "recebeu", value: "R$150,25", via: "em avaliações" },
+  { name: "Marina B.", action: "sacou", value: "R$435,00", via: "via Pix" },
+  { name: "Alex F.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Bruna C.", action: "recebeu", value: "R$355,80", via: "em avaliações" },
+  { name: "Lucas O.", action: "sacou", value: "R$220,00", via: "via Pix" },
+  { name: "Jessica S.", action: "atingiu", value: "a meta", via: "e sacou R$390" },
+  { name: "Pedro M.", action: "recebeu", value: "R$270,50", via: "em avaliações" },
+  { name: "Amanda F.", action: "sacou", value: "R$530,00", via: "via Pix" },
+  { name: "Tiago R.", action: "completou", value: "5 avaliações", via: "e recebeu bônus" },
+  { name: "Vanessa V.", action: "recebeu", value: "R$190,00", via: "em avaliações" },
+  { name: "André P.", action: "sacou", value: "R$360,00", via: "via Pix" },
+  { name: "Letícia C.", action: "atingiu", value: "a meta", via: "e sacou R$750" },
+  { name: "Matheus N.", action: "recebeu", value: "R$405,25", via: "em avaliações" },
+  { name: "Camila L.", action: "sacou", value: "R$130,00", via: "via Pix" },
+  { name: "Felipe T.", action: "completou", value: "10 avaliações", via: "e desbloqueou saque" },
+  { name: "Juliana R.", action: "recebeu", value: "R$245,80", via: "em avaliações" },
+  { name: "Guilherme O.", action: "sacou", value: "R$465,00", via: "via Pix" },
+  { name: "Ana P.", action: "atingiu", value: "a meta", via: "e sacou R$500" }
 ];
 
 /* ─── DOM REFS ───────────────────────────── */
@@ -704,7 +804,7 @@ function redirectToCheckout() {
   }, 2400);
 
   setTimeout(() => {
-    window.location.href = "https://pagelink.site/ref?pl=pla22lle&ck=chelz5p4&af=afip1xepl8";
+    window.location.href = "checkout.html";
   }, 3600);
 }
 
@@ -905,8 +1005,8 @@ function init() {
   dom.withdrawBtn.addEventListener("click", redirectToCheckout);
 
   dom.goalContinueBtn.addEventListener("click", () => {
-    window.location.href = "https://pagelink.site/ref?pl=pla22lle&ck=chelz5p4&af=afip1xepl8";
-  });
+  window.location.href = "checkout.html";
+});
 
   dom.withdrawBannerBtn && dom.withdrawBannerBtn.addEventListener("click", () => {
     dom.goalAmount.textContent = formatBRL(state.balance);
