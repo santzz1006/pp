@@ -20,9 +20,9 @@ const state = {
   answers: {},
   lastReward: 0,
   historyItems: [
-    { name: "Pagamento via Pix", value: 237.00, date: "Há 2 dias", icon: "ri-bank-card-line" },
-    { name: "Pagamento via Pix", value: 193.00, date: "Há 5 dias", icon: "ri-bank-card-line" },
-    { name: "Bônus de indicação", value: 75.00, date: "Há 1 semana", icon: "ri-gift-line" },
+    { name: "BÔNUS", value: 15.00, date: "Há 2 dias", icon: "ri-bank-card-line" },
+    { name: "BÔNUS", value: 10.00, date: "Há 5 dias", icon: "ri-bank-card-line" },
+    { name: "BÔNUS", value: 25.00, date: "Há 1 semana", icon: "ri-gift-line" },
   ],
 };
 
