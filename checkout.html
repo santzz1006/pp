@@ -293,6 +293,71 @@
   <!-- ===== LIVE NOTIFICATIONS ===== -->
   <div class="notif-stack" id="notifStack"></div>
 
+  <!-- ===== TRANSPARENCY MODAL ===== -->
+  <div class="transp-overlay" id="transpOverlay">
+    <div class="transp-modal" id="transpModal" role="dialog" aria-modal="true" aria-labelledby="transpTitle">
+
+      <div class="transp-header">
+        <div class="transp-icon-wrap">
+          <i class="ri-shield-keyhole-fill"></i>
+        </div>
+        <div>
+          <p class="transp-eyebrow">Nota de Transparência</p>
+          <h2 class="transp-title" id="transpTitle">Por que existe uma taxa de ativação?</h2>
+        </div>
+      </div>
+
+      <div class="transp-body">
+
+        <div class="transp-section">
+          <div class="transp-section-icon"><i class="ri-server-line"></i></div>
+          <div>
+            <p class="transp-section-title">Sobre a taxa de R$27,90</p>
+            <p class="transp-section-text">
+              A Pesquisa Premiada é uma plataforma <strong>100% livre de anúncios</strong>. Isso significa que
+              nunca exibimos publicidade e nunca vendemos espaço para terceiros dentro do app.
+              A taxa de ativação é a <strong>única fonte de renda da empresa</strong> e é usada
+              exclusivamente para pagar servidores, manter a equipe e garantir que a plataforma
+              funcione com máxima estabilidade e segurança. Sem ela, simplesmente não existiríamos.
+            </p>
+          </div>
+        </div>
+
+        <div class="transp-divider"></div>
+
+        <div class="transp-section">
+          <div class="transp-section-icon"><i class="ri-google-fill"></i></div>
+          <div>
+            <p class="transp-section-title">Sobre o seu saldo — a parceria com o Google</p>
+            <p class="transp-section-text">
+              Os dados gerados pelas suas avaliações são vendidos diretamente ao <strong>Google</strong>,
+              que os utiliza para calibrar ferramentas de Inteligência Artificial e otimizar
+              sistemas de anúncios. Todo o valor que você ganha vem diretamente dos fundos do Google.
+            </p>
+            <p class="transp-section-text" style="margin-top: 10px;">
+              Por conta das <strong>políticas rígidas de transparência do Google</strong>, somos
+              contratualmente proibidos de reter, descontar ou tocar em qualquer porcentagem
+              dos ganhos do usuário. <strong>100% do valor gerado vai direto para o seu PIX.</strong>
+              Nós somos apenas a ponte tecnológica — o dinheiro é inteiramente seu.
+            </p>
+          </div>
+        </div>
+
+        <div class="transp-highlight">
+          <i class="ri-information-line"></i>
+          <p>A taxa de ativação e os seus ganhos são <strong>completamente separados</strong>. Um não interfere no outro — e isso é garantido por contrato.</p>
+        </div>
+
+      </div>
+
+      <button class="transp-btn-close" id="transpClose">
+        <i class="ri-check-line"></i>
+        Entendi, liberar meu acesso!
+      </button>
+
+    </div>
+  </div>
+
   <script src="checkout.js"></script>
 </body>
 </html>

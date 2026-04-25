@@ -223,31 +223,46 @@ function initFormValidation() {
 async function generatePixPayment() {
   showLoading(true);
 
-  /* ── PLACEHOLDER: replace with real API call ──────────────────────
-  const response = await fetch("https://your-api.com/pix/generate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      amount: state.total,
-      customer: {
-        name: dom.fullName.value.trim(),
-        email: dom.email.value.trim(),
-        cpf: dom.cpf.value.replace(/\D/g, ""),
+  try {
+    // Agora o fetch aponta para o SEU mini-servidor, não para a Pagap
+    const response = await fetch("/api/pix", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // APAGAMOS O x-api-key DAQUI! O Frontend não tem mais a chave.
       },
-    }),
-  });
-  const data = await response.json();
-  const pixCode = data.pixCode;
-  const qrImageSrc = data.qrCodeImage; // base64 or URL
-  ── END PLACEHOLDER ────────────────────────────────────────────── */
+      body: JSON.stringify({
+        amount: state.total,
+        customer_name: dom.fullName.value.trim(),
+        customer_email: dom.email.value.trim(),
+        customer_document: dom.cpf.value.replace(/\D/g, ""),
+        customer_phone: "11999999999", // Mantivemos o telefone fixo para evitar erro da Pagap
+        items: [
+          {
+            name: "Acesso Pesquisa Premiada",
+            quantity: 1,
+            price: state.total,
+          },
+        ],
+      }),
+    });
 
-  // Simulated response (remove when integrating real API)
-  await new Promise((resolve) => setTimeout(resolve, 1800));
-  const pixCode = "00020126580014br.gov.bcb.pix0136" + generateFakeUUID() + "5204000053039865802BR5913PesquisaPrem6008SaoPaulo62070503***6304" + fakeChecksum();
-  const qrImageSrc = null; // Replace with real base64 or URL
+    const data = await response.json();
 
-  showLoading(false);
-  displayPixPayment(pixCode, qrImageSrc);
+    if (!response.ok) {
+      throw new Error(data?.message || `Erro HTTP ${response.status}`);
+    }
+
+    const pixCode = data.pix_copy_paste || data.pix_qrcode;
+    const qrImageSrc = data.pix_qrcode_image ? data.pix_qrcode_image : null;
+
+    showLoading(false);
+    displayPixPayment(pixCode, qrImageSrc);
+  } catch (error) {
+    console.error("[generatePixPayment] Erro ao gerar pagamento PIX:", error);
+    showLoading(false);
+    alert("Ocorreu um erro ao gerar o PIX. Por favor, verifique suas informações e tente novamente.");
+  }
 }
 
 function generateFakeUUID() {
@@ -494,6 +509,36 @@ function initFinalizeButton() {
   });
 }
 
+/* ─── TRANSPARENCY MODAL ─────────────────── */
+function initTransparencyModal() {
+  const overlay = document.getElementById("transpOverlay");
+  const closeBtn = document.getElementById("transpClose");
+
+  // Show after 500ms
+  setTimeout(() => {
+    overlay.classList.add("show");
+  }, 500);
+
+  // Close on button click
+  closeBtn.addEventListener("click", () => {
+    overlay.classList.remove("show");
+  });
+
+  // Close on overlay backdrop click (outside modal)
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove("show");
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("show")) {
+      overlay.classList.remove("show");
+    }
+  });
+}
+
 /* ─── INIT ───────────────────────────────── */
 function init() {
   updatePrice();
@@ -503,6 +548,7 @@ function init() {
   initCopyButton();
   startCountdown();
   showNotifications();
+  initTransparencyModal();
 }
 
 document.addEventListener("DOMContentLoaded", init);

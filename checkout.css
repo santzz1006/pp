@@ -1001,9 +1001,232 @@ body {
   font-weight: 400;
 }
 
+
 /* =========================================
-   RESPONSIVE
+   TRANSPARENCY MODAL
    ========================================= */
+.transp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.transp-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.transp-modal {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 28px;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.4s cubic-bezier(0.34, 1.36, 0.64, 1);
+}
+
+.transp-overlay.show .transp-modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Scrollbar styling inside modal */
+.transp-modal::-webkit-scrollbar {
+  width: 4px;
+}
+.transp-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.transp-modal::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+/* HEADER */
+.transp-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.transp-icon-wrap {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: var(--surface2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--text);
+}
+
+.transp-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.transp-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+}
+
+/* BODY */
+.transp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.transp-section {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.transp-section-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.transp-section-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.2px;
+}
+
+.transp-section-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.transp-section-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.transp-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0;
+}
+
+/* HIGHLIGHT BOX */
+.transp-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  margin-top: 20px;
+}
+
+.transp-highlight i {
+  font-size: 16px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.transp-highlight p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.transp-highlight p strong {
+  color: var(--text);
+}
+
+/* CLOSE BUTTON */
+.transp-btn-close {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 100px;
+  padding: 17px 32px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.transp-btn-close:hover {
+  background: rgba(255, 255, 255, 0.88);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 32px rgba(255, 255, 255, 0.14);
+}
+
+.transp-btn-close:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .transp-modal {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .transp-title {
+    font-size: 16px;
+  }
+
+  .transp-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 860px) {
   .ck-grid {
     grid-template-columns: 1fr;
